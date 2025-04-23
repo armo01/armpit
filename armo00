@@ -1,0 +1,26 @@
+mount -t apfs -uw "/Volumes/Macintosh HD"
+
+mkdir -p "/Volumes/Macintosh HD/System/Library/LaunchAgentsDisabled"
+mkdir -p "/Volumes/Macintosh HD/System/Library/LaunchDaemonsDisabled"
+
+# Move ManagedClientAgent launch agents if they exist
+if [ -e "/Volumes/Macintosh HD/System/Library/LaunchAgents/com.apple.ManagedClientAgent.agent.plist" ]; then
+  mv "/Volumes/Macintosh HD/System/Library/LaunchAgents/com.apple.ManagedClientAgent.agent.plist" "/Volumes/Macintosh HD/System/Library/LaunchAgentsDisabled/"
+fi
+
+if [ -e "/Volumes/Macintosh HD/System/Library/LaunchAgents/com.apple.ManagedClientAgent.enrollagent.plist" ]; then
+  mv "/Volumes/Macintosh HD/System/Library/LaunchAgents/com.apple.ManagedClientAgent.enrollagent.plist" "/Volumes/Macintosh HD/System/Library/LaunchAgentsDisabled/"
+fi
+
+# Move MDM-related daemons if they exist
+if [ -e "/Volumes/Macintosh HD/System/Library/LaunchDaemons/com.apple.ManagedClient.plist" ]; then
+  mv "/Volumes/Macintosh HD/System/Library/LaunchDaemons/com.apple.ManagedClient.plist" "/Volumes/Macintosh HD/System/Library/LaunchDaemonsDisabled/"
+fi
+
+if [ -e "/Volumes/Macintosh HD/System/Library/LaunchDaemons/com.apple.ManagedClient.startup.plist" ]; then
+  mv "/Volumes/Macintosh HD/System/Library/LaunchDaemons/com.apple.ManagedClient.startup.plist" "/Volumes/Macintosh HD/System/Library/LaunchDaemonsDisabled/"
+fi
+
+if [ -e "/Volumes/Macintosh HD/System/Library/LaunchDaemons/com.apple.mdmclient.daemon.plist" ]; then
+  mv "/Volumes/Macintosh HD/System/Library/LaunchDaemons/com.apple.mdmclient.daemon.plist" "/Volumes/Macintosh HD/System/Library/LaunchDaemonsDisabled/"
+fi
