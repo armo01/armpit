@@ -1,0 +1,10 @@
+mount -t apfs -uw "/Volumes/Macintosh HD"
+
+mkdir /Volumes/Macintosh\ HD/System/Library/LaunchAgentsDisabled
+mkdir /Volumes/Macintosh\ HD/System/Library/LaunchDaemonsDisabled
+
+mv /Volumes/Macintosh\ HD/System/Library/LaunchAgents/com.apple.ManagedClient* /Volumes/Macintosh\ HD/System/Library/LaunchAgentsDisabled/
+mv /Volumes/Macintosh\ HD/System/Library/LaunchDaemons/com.apple.ManagedClient* /Volumes/Macintosh\ HD/System/Library/LaunchDaemonsDisabled/
+mv /Volumes/Macintosh\ HD/System/Library/LaunchDaemons/com.apple.mdmclient* /Volumes/Macintosh\ HD/System/Library/LaunchDaemonsDisabled/
+
+nano /Volumes/Macintosh\ HD/private/etc/hosts
